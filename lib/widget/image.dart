@@ -15,7 +15,10 @@ class MyImage extends StatelessWidget {
               flex: 2,
               child: Container(
                 padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 0),
-                child: Image(image: AssetImage("assets/images/laptop.png")),
+                child: Image(
+                  image: AssetImage("assets/images/laptop.png"),
+                  fit: BoxFit.cover,
+                ),
               )),
           Expanded(
               flex: 1,

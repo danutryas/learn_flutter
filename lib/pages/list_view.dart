@@ -49,12 +49,6 @@ class _MyListViewState extends State<MyListView> {
     ),
   ];
 
-  _MyListViewState() {
-    widgets.add(ElevatedButton(
-        onPressed: () => {context.go('/flex')},
-        child: Text("View Flexible Layout")));
-  }
-
   @override
   Widget build(BuildContext context) {
     return Container(

@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:learn_flutter/pages/drag.dart';
 import 'package:learn_flutter/pages/flexible.dart';
+import 'package:learn_flutter/pages/page_builder.dart';
+import 'package:learn_flutter/pages/stack.dart';
 import 'package:learn_flutter/widget/image.dart';
 import 'package:learn_flutter/widget/layout.dart';
 import 'package:learn_flutter/widget/text.dart';
 import 'package:learn_flutter/widget/icon.dart';
 import 'package:learn_flutter/widget/button.dart';
-import 'package:learn_flutter/widget/list_view.dart';
+import 'package:learn_flutter/pages/list_view.dart';
 import 'package:go_router/go_router.dart';
 
 void main() {
@@ -21,10 +24,34 @@ final GoRouter _router = GoRouter(
         },
         routes: [
           GoRoute(
+            path: 'widget',
+            builder: (context, state) => const MyPageBuilder(
+              textTitle: "Stack",
+              childWidget: MyListView(),
+            ),
+          ),
+          GoRoute(
               path: 'flex',
               builder: ((context, state) {
-                return const MyFlexibleLayout();
-              }))
+                return const MyPageBuilder(
+                  textTitle: "Flexible",
+                  childWidget: MyFlexibleLayout(),
+                );
+              })),
+          GoRoute(
+            path: 'stack',
+            builder: (context, state) => const MyPageBuilder(
+              textTitle: "Stack",
+              childWidget: MyStackWidget(),
+            ),
+          ),
+          GoRoute(
+            path: 'drag',
+            builder: (context, state) => const MyPageBuilder(
+              textTitle: "Draggable Component",
+              childWidget: MyDraggableComponent(),
+            ),
+          ),
         ]),
   ],
 );
@@ -66,6 +93,36 @@ class Body extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MyListView();
+    return Center(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          ElevatedButton(
+            onPressed: () {
+              context.go('/widget');
+            },
+            child: const Text("ListView"),
+          ),
+          ElevatedButton(
+            onPressed: () {
+              context.go('/flex');
+            },
+            child: const Text("Flexible"),
+          ),
+          ElevatedButton(
+            onPressed: () {
+              context.go('/stack');
+            },
+            child: const Text("Stack"),
+          ),
+          ElevatedButton(
+            onPressed: () {
+              context.go('/drag');
+            },
+            child: const Text("Draggable Media"),
+          ),
+        ],
+      ),
+    );
   }
 }
