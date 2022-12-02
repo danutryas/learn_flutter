@@ -1,8 +1,6 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 class MyAnimatedContainer extends StatefulWidget {
   const MyAnimatedContainer({super.key});

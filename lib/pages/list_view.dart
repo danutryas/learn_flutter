@@ -5,7 +5,6 @@ import 'package:learn_flutter/widget/layout.dart';
 import 'package:learn_flutter/widget/text.dart';
 import 'package:learn_flutter/widget/icon.dart';
 import 'package:learn_flutter/widget/button.dart';
-import 'package:go_router/go_router.dart';
 import 'package:learn_flutter/widget/animatedcontainer.dart';
 
 class MyListView extends StatefulWidget {

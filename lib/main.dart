@@ -1,13 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:learn_flutter/pages/cards.dart';
 import 'package:learn_flutter/pages/drag.dart';
 import 'package:learn_flutter/pages/flexible.dart';
 import 'package:learn_flutter/pages/page_builder.dart';
 import 'package:learn_flutter/pages/stack.dart';
-import 'package:learn_flutter/widget/image.dart';
-import 'package:learn_flutter/widget/layout.dart';
-import 'package:learn_flutter/widget/text.dart';
-import 'package:learn_flutter/widget/icon.dart';
-import 'package:learn_flutter/widget/button.dart';
 import 'package:learn_flutter/pages/list_view.dart';
 import 'package:go_router/go_router.dart';
 
@@ -50,6 +46,13 @@ final GoRouter _router = GoRouter(
             builder: (context, state) => const MyPageBuilder(
               textTitle: "Draggable Component",
               childWidget: MyDraggableComponent(),
+            ),
+          ),
+          GoRoute(
+            path: 'cards',
+            builder: (context, state) => const MyPageBuilder(
+              textTitle: "Cards Creations",
+              childWidget: MyCardsWidget(),
             ),
           ),
         ]),
@@ -120,6 +123,12 @@ class Body extends StatelessWidget {
               context.go('/drag');
             },
             child: const Text("Draggable Media"),
+          ),
+          ElevatedButton(
+            onPressed: () {
+              context.go('/cards');
+            },
+            child: const Text("Cards Creation"),
           ),
         ],
       ),
